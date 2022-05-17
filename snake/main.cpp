@@ -27,25 +27,25 @@ int main()
             switch (_getch())
             {
             case 'w':
-                if (player->getDirection() != Direction::Down)
+                if (player->getDirectionRef() != Direction::Down)
                 {
                     player->setDirection(Direction::Up);
                 }
                 break;
             case 's':
-                if (player->getDirection() != Direction::Up)
+                if (player->getDirectionRef() != Direction::Up)
                 {
                     player->setDirection(Direction::Down);
                 }
                 break;
             case 'a':
-                if (player->getDirection() != Direction::Right)
+                if (player->getDirectionRef() != Direction::Right)
                 {
                     player->setDirection(Direction::Left);
                 }
                 break;
             case 'd':
-                if (player->getDirection() != Direction::Left)
+                if (player->getDirectionRef() != Direction::Left)
                 {
                     player->setDirection(Direction::Right);
                 }
@@ -67,7 +67,7 @@ int main()
 
 void startScreen()
 {
-    std::cout << "PYTHON" << std::endl;
+    std::cout << "SNAKE" << std::endl;
     std::cout << "Instructions: wasd to change direction, q to escape" << std::endl;
     std::cout << "Press any button to start..." << std::endl;
     _getch();

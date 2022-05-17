@@ -13,9 +13,9 @@ public:
 	void randomizeFoodLocation() noexcept;
 	bool isFoodOnPlayer() const noexcept;
 
-	COORD& getCurrentLocationRef() noexcept;
+	const COORD& getCurrentLocationRef() const noexcept;
 
-	void setPtrToPlayer_(std::shared_ptr<Player> player) noexcept;
+	void setPtrToPlayer_(const std::shared_ptr<Player>& player) noexcept;
 
 private:
 	COORD currentLocation_;

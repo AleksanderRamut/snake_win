@@ -17,8 +17,8 @@ public:
     void cleanBoard() noexcept;
     void drawFrame() const noexcept;
 
-    void setPtrToFood(std::shared_ptr<Food> ptrToFood) noexcept;
-    void setPtrToPlayer(std::shared_ptr<Player> ptrToPlayer) noexcept;
+    void setPtrToFood(const std::shared_ptr<Food>& ptrToFood) noexcept;
+    void setPtrToPlayer(const std::shared_ptr<Player>& ptrToPlayer) noexcept;
 
 private:
     std::shared_ptr<Player> ptrToPlayer_;

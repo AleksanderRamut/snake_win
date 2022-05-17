@@ -4,7 +4,7 @@
 struct COORD
 {
     COORD() = default;
-    COORD(int X, int Y) : coordX_(X), coordY_(Y)
+    COORD(const int& X, const int& Y) : coordX_(X), coordY_(Y)
     {}
 
     int coordX_;

@@ -32,12 +32,12 @@ bool Food::isFoodOnPlayer() const noexcept
     return false;
 }
 
-COORD& Food::getCurrentLocationRef() noexcept
+const COORD& Food::getCurrentLocationRef() const noexcept
 {
     return currentLocation_;
 }
 
-void Food::setPtrToPlayer_(std::shared_ptr<Player> ptrToPlayer) noexcept
+void Food::setPtrToPlayer_(const std::shared_ptr<Player>& ptrToPlayer) noexcept
 {
-    ptrToPlayer_ = std::move(ptrToPlayer);
+    ptrToPlayer_ = ptrToPlayer;
 }

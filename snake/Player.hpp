@@ -13,12 +13,12 @@ public:
     bool checkIfLost() const noexcept;
     bool checkIfFoodEaten() const noexcept;
 
-    std::deque<COORD>& getPlayerRef() noexcept;
-    Direction getDirection() const noexcept;
-    int getPlayerSize() const noexcept;
+    const std::deque<COORD>& getPlayerRef() noexcept;
+    const Direction& getDirectionRef() const noexcept;
+    const size_t getPlayerSize() const noexcept;
 
-    void setDirection(Direction newDirection) noexcept;
-    void setPointerToFood(std::shared_ptr<Food>) noexcept;
+    void setDirection(const Direction& newDirection) noexcept;
+    void setPointerToFood(const std::shared_ptr<Food>&) noexcept;
 
 private:
     std::deque<COORD> player_;

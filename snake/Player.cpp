@@ -2,10 +2,10 @@
 
 Player::Player() : currentDirection_(Direction::Right), currentHead_(WIDTH/4, HEIGHT/2)
 {
-    player_.push_back(COORD(WIDTH / 4, HEIGHT / 2));
-    player_.push_back(COORD((WIDTH / 4) - 1, HEIGHT / 2));
-    player_.push_back(COORD((WIDTH / 4) - 2, HEIGHT / 2));
-    player_.push_back(COORD((WIDTH / 4) - 3, HEIGHT / 2));
+    for (int i = 0; i < 4; i++)
+    {
+        player_.push_back(COORD((WIDTH / 4) - i, HEIGHT / 2));
+    }
 }
 
 void Player::changePosition() noexcept
@@ -44,9 +44,9 @@ void Player::changePosition() noexcept
 }
 bool Player::checkIfLost() const noexcept
 {
-    for (auto It = (begin(player_)); It != end(player_); It++)
+    for(const auto& el : player_)
     {
-        if (currentHead_.coordX_ == It->coordX_ && currentHead_.coordY_ == It->coordY_)
+        if (currentHead_.coordX_ == el.coordX_ && currentHead_.coordY_ == el.coordY_)
         {
             return true;
         }
@@ -67,24 +67,24 @@ bool Player::checkIfFoodEaten() const noexcept
     return false;
 }
 
-std::deque<COORD>& Player::getPlayerRef()  noexcept
+const std::deque<COORD>& Player::getPlayerRef()  noexcept
 {
     return player_;
 }
-Direction Player::getDirection() const noexcept
+const Direction& Player::getDirectionRef() const noexcept
 {
     return currentDirection_;
 }
-int Player::getPlayerSize() const noexcept
+const size_t Player::getPlayerSize() const noexcept
 {
     return player_.size();
 }
 
-void Player::setDirection(Direction newDirection) noexcept
+void Player::setDirection(const Direction& newDirection) noexcept
 {
     currentDirection_ = newDirection;
 }
-void Player::setPointerToFood(std::shared_ptr<Food> ptrToFood) noexcept
+void Player::setPointerToFood(const std::shared_ptr<Food>& ptrToFood) noexcept
 {
-    ptrToFood_ = std::move(ptrToFood);
+    ptrToFood_ = ptrToFood;
 }

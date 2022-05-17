@@ -46,11 +46,11 @@ void Board::drawFrame() const noexcept
     std::cout << " +" << std::endl;
 }
 
-void Board::setPtrToFood(std::shared_ptr<Food> ptrToFood) noexcept
+void Board::setPtrToFood(const std::shared_ptr<Food>& ptrToFood) noexcept
 {
-    ptrToFood_ = std::move(ptrToFood);
+    ptrToFood_ = ptrToFood;
 }
-void Board::setPtrToPlayer(std::shared_ptr<Player> ptrToPlayer) noexcept
+void Board::setPtrToPlayer(const std::shared_ptr<Player>& ptrToPlayer) noexcept
 {
-    ptrToPlayer_ = std::move(ptrToPlayer);
+    ptrToPlayer_ = ptrToPlayer;
 }
