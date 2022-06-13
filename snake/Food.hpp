@@ -19,6 +19,6 @@ public:
 
 private:
 	COORD currentLocation_;
-    std::shared_ptr<Player> ptrToPlayer_;
+        std::shared_ptr<Player> ptrToPlayer_;
 	std::random_device rd;
 };
