@@ -7,15 +7,13 @@ class Player;
 class Food
 {
 public:
-	Food();
+	Food(std::shared_ptr<Player>& ptrToPlayer);
 
 	void changeFoodLocation() noexcept;
 	void randomizeFoodLocation() noexcept;
 	bool isFoodOnPlayer() const noexcept;
 
 	const COORD& getCurrentLocationRef() const noexcept;
-
-	void setPtrToPlayer_(const std::shared_ptr<Player>& player) noexcept;
 
 private:
 	COORD currentLocation_;

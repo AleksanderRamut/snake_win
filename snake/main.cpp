@@ -12,13 +12,9 @@ int main()
     startScreen();
 
     auto player = std::make_shared<Player>();
-    auto food = std::make_shared<Food>();
-    auto board = std::make_shared<Board>();
-
+    auto food = std::make_shared<Food>(player);
+    auto board = std::make_shared<Board>(food, player);
     player->setPointerToFood(food);
-    food->setPtrToPlayer_(player);
-    board->setPtrToFood(food);
-    board->setPtrToPlayer(player);
 
     while (true)
     {
@@ -72,7 +68,6 @@ void startScreen()
     std::cout << "Press any button to start..." << std::endl;
     _getch();
 }
-
 void endScreen()
 {
     std::cout << "YOU LOSE!!!" << std::endl;

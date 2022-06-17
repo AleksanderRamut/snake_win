@@ -1,6 +1,7 @@
 #include "Board.hpp"
 
-Board::Board()
+Board::Board(std::shared_ptr<Food> ptrToFood, std::shared_ptr<Player> ptrToPlayer)
+    : ptrToFood_(ptrToFood), ptrToPlayer_(ptrToPlayer)
 {
     std::for_each(begin(board_), end(board_), [](auto& el) {el.fill('.'); });
 }
@@ -16,25 +17,14 @@ void Board::draw() noexcept
         std::for_each(begin(outerArray), end(outerArray), [](const auto& el) { std::cout << std::setw(2) << el; });
         std::cout << std::setw(2) << "|" << std::endl;
     }
-    cleanBoard();
     drawFrame();
     std::cout << "Score: " << ptrToPlayer_->getPlayerSize() - 4 << std::endl;
 }
 void Board::updateBoard() noexcept
 {
-    for (const auto& el : ptrToPlayer_->getPlayerRef())
-    {
-        board_.at(el.coordY_).at(el.coordX_) = '@';
-    }
+    board_.at(ptrToPlayer_->getPlayerRef().front().coordY_).at(ptrToPlayer_->getPlayerRef().front().coordX_) = '@';
+    board_.at(ptrToPlayer_->getPlayerRef().back().coordY_).at(ptrToPlayer_->getPlayerRef().back().coordX_) = '.';
     board_.at(ptrToFood_->getCurrentLocationRef().coordY_).at(ptrToFood_->getCurrentLocationRef().coordX_) = '#';
-}
-void Board::cleanBoard() noexcept
-{
-    for (const auto& el : ptrToPlayer_->getPlayerRef())
-    {
-        board_.at(el.coordY_).at(el.coordX_) = '.';
-    }
-    board_.at(ptrToFood_->getCurrentLocationRef().coordY_).at(ptrToFood_->getCurrentLocationRef().coordX_) = '.';
 }
 void Board::drawFrame() const noexcept
 {
@@ -44,13 +34,4 @@ void Board::drawFrame() const noexcept
         std::cout << std::setw(2) << "=";
     };
     std::cout << " +" << std::endl;
-}
-
-void Board::setPtrToFood(const std::shared_ptr<Food>& ptrToFood) noexcept
-{
-    ptrToFood_ = ptrToFood;
-}
-void Board::setPtrToPlayer(const std::shared_ptr<Player>& ptrToPlayer) noexcept
-{
-    ptrToPlayer_ = ptrToPlayer;
 }

@@ -1,6 +1,6 @@
 #include "Food.hpp"
 
-Food::Food()
+Food::Food(std::shared_ptr<Player>& ptrToPlayer) : ptrToPlayer_(ptrToPlayer)
 {
     randomizeFoodLocation();
 }
@@ -35,9 +35,4 @@ bool Food::isFoodOnPlayer() const noexcept
 const COORD& Food::getCurrentLocationRef() const noexcept
 {
     return currentLocation_;
-}
-
-void Food::setPtrToPlayer_(const std::shared_ptr<Player>& ptrToPlayer) noexcept
-{
-    ptrToPlayer_ = ptrToPlayer;
 }

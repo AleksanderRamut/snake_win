@@ -10,15 +10,11 @@ class Food;
 class Board
 {
 public:
-    Board();
+    Board(std::shared_ptr<Food> ptrToFood, std::shared_ptr<Player> ptrToPlayer);
 
     void draw() noexcept;
     void updateBoard() noexcept;
-    void cleanBoard() noexcept;
     void drawFrame() const noexcept;
-
-    void setPtrToFood(const std::shared_ptr<Food>& ptrToFood) noexcept;
-    void setPtrToPlayer(const std::shared_ptr<Player>& ptrToPlayer) noexcept;
 
 private:
     std::shared_ptr<Player> ptrToPlayer_;

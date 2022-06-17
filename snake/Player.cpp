@@ -14,28 +14,28 @@ void Player::changePosition() noexcept
     {
     case 0:
         player_.push_front({ currentHead_.coordX_, currentHead_.coordY_-- });
-        if (!checkIfFoodEaten())
+        if (!isFoodEaten())
         {
             player_.pop_back();
         }
         break;
     case 1:
         player_.push_front({ currentHead_.coordX_, currentHead_.coordY_++ });
-        if (!checkIfFoodEaten())
+        if (!isFoodEaten())
         {
             player_.pop_back();
         }
         break;
     case 2:
         player_.push_front({ currentHead_.coordX_--, currentHead_.coordY_ });
-        if (!checkIfFoodEaten())
+        if (!isFoodEaten())
         {
             player_.pop_back();
         }
         break;
     case 3:
         player_.push_front({ currentHead_.coordX_++, currentHead_.coordY_ });
-        if (!checkIfFoodEaten())
+        if (!isFoodEaten())
         {
             player_.pop_back();
         }
@@ -57,7 +57,7 @@ bool Player::checkIfLost() const noexcept
     }
     return false;
 }
-bool Player::checkIfFoodEaten() const noexcept
+bool Player::isFoodEaten() const noexcept
 {
     if (player_.at(0).coordX_ == ptrToFood_->getCurrentLocationRef().coordX_ && player_.at(0).coordY_ == ptrToFood_->getCurrentLocationRef().coordY_)
     {

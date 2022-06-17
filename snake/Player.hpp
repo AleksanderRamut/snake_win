@@ -11,7 +11,7 @@ public:
 
     void changePosition() noexcept;
     bool checkIfLost() const noexcept;
-    bool checkIfFoodEaten() const noexcept;
+    bool isFoodEaten() const noexcept;
 
     const std::deque<COORD>& getPlayerRef() noexcept;
     const Direction& getDirectionRef() const noexcept;
