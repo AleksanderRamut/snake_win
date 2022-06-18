@@ -1,5 +1,5 @@
 # snake_win
 
 A simple snake-like game written for windows command prompt
-![image](https://user-images.githubusercontent.com/105677485/174449345-c5fa7a0c-90a9-4a25-9879-310bdb2ccd2c.png)
 
+![2](https://user-images.githubusercontent.com/105677485/174449376-db0e0a7b-61b6-4d5b-ba9f-452c1860f309.png)
